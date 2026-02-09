@@ -1,60 +1,95 @@
-public class Library {
+import java.util.Scanner;
 
-    private Book[] books;
-    private int count;
+public class Main {
 
-    public Library(int capacity) {
-        books = new Book[capacity];
-        count = 0;
-    }
+    public static void main(String[] args) {
 
-    // TODO: Add book to array
-    public void addBook(Book book) {
-        if (count < books.length){
-            books[count]=book;
-            count++;}
-        else{
-            System.out.println("full");}
-    }
+        Scanner scanner = new Scanner(System.in);
+        Library library = new Library(10);
 
-    // TODO: Display all books
-    public void displayBooks() {
-        for(int i = 0 ; i<count;i++){
-            System.out.println(books[i]);}}
+        int choice;
+
+        do {
+            System.out.println("\n===== Library Menu =====");
+            System.out.println("1. Add book");
+            System.out.println("2. Add e-book");
+            System.out.println("3. Display all books");
+            System.out.println("4. Search book by title");
+            System.out.println("5. Borrow book");
+            System.out.println("6. Return book");
+            System.out.println("7. Exit");
+            System.out.print("Choose option: ");
+
+            choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            switch (choice) {
+
+                case 1:
+                    // TODO: Read input and add Book
+                    System.out.println("Enter books' name");
+                    String titleb = scanner.nextLine();
+                    System.out.println("Enter books' author");
+                    String authorb = scanner.nextLine();
+                    System.out.println("Enter books' year");
+                    int yearb = scanner.nextInt();
+                    scanner.nextLine();
+                    Book bookb = new Book(titleb, authorb, yearb);
+                    library.addBook(bookb);
+                    break;
 
 
-    // TODO: Search book by title
-    public Book searchByTitle(String title) {
-        for (int i = 0; i<count; i++){
-            if (books[i].getTitle().equals(title)){
-                return books[i];
+
+                case 2:
+                    // TODO: Read input and add EBook
+                    System.out.println("Enter E-book's title:");
+                    String eTitle = scanner.nextLine();
+                    System.out.println("Enter E-book's author:");
+                    String eAuthor = scanner.nextLine();
+                    System.out.println("Enter E-book's year:");
+                    int eYear = scanner.nextInt();
+                    System.out.println("Enter file size (MB):");
+                    double fileSize = scanner.nextDouble();
+                    scanner.nextLine(); // consume newline
+                    EBook newEbook = new EBook(eTitle,eAuthor,eYear,fileSize);
+                    library.addBook(newEbook);
+                    break;
+
+                case 3:
+                    library.displayBooks();
+                    break;
+
+                case 4:
+                    // TODO: Search book
+                    System.out.println("Enter your books' title");
+                    String sTitle = scanner.nextLine();
+                    library.searchByTitle(sTitle);
+                    break;
+
+                case 5:
+                    // TODO: Borrow book
+                    System.out.println("Enter your books' title");
+                    sTitle = scanner.nextLine();
+                    library.borrowBook(sTitle);
+                    break;
+
+                case 6:
+                    // TODO: Return book
+                    System.out.println("Enter your books' title");
+                    sTitle = scanner.nextLine();
+                    library.returnBook(sTitle);
+                    break;
+
+                case 7:
+                    System.out.println("Goodbye!");
+                    break;
+
+                default:
+                    System.out.println("Invalid option!");
             }
-        }
-        return null;
-    }
 
-    // TODO: Borrow book by title
-    public void borrowBook(String title) {
-        Book b=searchByTitle(title);
+        } while (choice != 7);
 
-        if (b==null){
-            System.out.println("book not found");}
-        else if (!b.isAvailable()){
-            System.out.println("is already borrowed");}
-        else {
-            System.out.println("borrowed ");}
-    }
-
-    // TODO: Return book by title
-    public void returnBook(String title) {
-        Book b=searchByTitle(title);
-        if (b == null) {
-            System.out.println("Book not found");
-        } else if (!b.isAvailable()) {
-            System.out.println("Book was not borrowed");
-        } else {
-            b.returnBook();
-            System.out.println("Book returned successfully");}
-
+        scanner.close();
     }
 }
