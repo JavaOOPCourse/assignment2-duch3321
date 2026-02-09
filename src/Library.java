@@ -28,14 +28,14 @@ public class Main {
                 case 1:
                     // TODO: Read input and add Book
                     System.out.println("Enter books' name");
-                    String titleb = scanner.nextLine();
+                    String titlee = scanner.nextLine();
                     System.out.println("Enter books' author");
-                    String authorb = scanner.nextLine();
+                    String authorr = scanner.nextLine();
                     System.out.println("Enter books' year");
-                    int yearb = scanner.nextInt();
+                    int yearr = scanner.nextInt();
                     scanner.nextLine();
-                    Book bookb = new Book(titleb, authorb, yearb);
-                    library.addBook(bookb);
+                    Book bookk = new Book(titlee, authorr, yearr);
+                    library.addBook(bookk);
                     break;
 
 
