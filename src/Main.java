@@ -63,7 +63,7 @@ public class Main {
                     // TODO: Search book
                     System.out.println("Enter your books' title");
                     String sTitle = scanner.nextLine();
-                    library.searchByTitle(sTitle);
+                    System.out.println(library.searchByTitle(sTitle));
                     break;
 
                 case 5:
@@ -81,7 +81,7 @@ public class Main {
                     break;
 
                 case 7:
-                    System.out.println("Goodbye!");
+                    System.out.println("See you");
                     break;
 
                 default:

@@ -53,7 +53,7 @@ public class Book {
     // TODO: Override toString()
     @Override
     public String toString() {
-        return ("Title : "+this.title+" , Author : "+this.author+" , Year : "+this.year+"is available : "+this.isAvailable);
+        return ("Title : "+this.title+" , Author : "+this.author+" , Year : "+this.year+" , is available : "+this.isAvailable);
     }
 
     // TODO: Override equals()
