@@ -42,6 +42,7 @@ public class Library {
         else if (!b.isAvailable()){
             System.out.println("is already borrowed");}
         else {
+            b.borrowBook();
             System.out.println("borrowed ");}
     }
 
@@ -50,7 +51,7 @@ public class Library {
         Book b=searchByTitle(title);
         if (b == null) {
             System.out.println("Book not found");
-        } else if (!b.isAvailable()) {
+        } else if (b.isAvailable()) {
             System.out.println("Book was not borrowed");
         } else {
             b.returnBook();

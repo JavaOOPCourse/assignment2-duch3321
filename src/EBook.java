@@ -11,6 +11,6 @@ public class EBook extends Book {
     // TODO: Override toString()
     @Override
     public String toString() {
-        return ("Title : "+getTitle()+" , Author : "+getAuthor()+" , Year : "+getYear()+" , is available : "+isAvailable()+" file size : "+this.fileSize);
+        return ("Title : "+getTitle()+" , Author : "+getAuthor()+" , Year : "+getYear()+" , is available : "+isAvailable()+" , file size : "+this.fileSize);
     }
 }
